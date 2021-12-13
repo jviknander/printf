@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 10:13:14 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/11/14 16:20:54 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/12/13 14:35:07 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/12/13 17:05:01 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_putnbr(int n)
 {
-	while (*s)
+	int	digit;
+
+	digit = 0;
+	if (n == -2147483648)
+			return (ft_putstr("-2147483648"));
+	else
 	{
-		if (*s == (char )c)
-			return ((char *)s);
-		s++;
+		if (n < 0)
+		{
+			digit = ft_putchar('-');
+			n = n * (-1);
+		}
+		if (n > 9)
+		{
+			digit =	ft_putnbr(n / 10);
+			digit = (n % 10) + '0';
+		}
 	}
-	if (c == 0)
-		return ((char *)s);
-	return (0);
+	return (digit);	
 }
-/*
-*s
-|_______________|
-|_(char)c_______|
-|_______________|
-|_ou____c == 0__|
-|_______________|
-  retorna (char *)s
-
-
-if one of these doesnt happen, it returns 0 because there's no c
-
-
-int main()
-{
-	printf("%s", ft_strchr("hello0bye", 0));
-	printf("%s", strchr("hello0bye", 0));
-}
-*/

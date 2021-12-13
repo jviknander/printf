@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 15:02:54 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/11/15 11:04:45 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/12/13 14:34:25 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/12/13 17:05:31 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_putchar(char c)
 {
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	write(1, &c, 1);
 }

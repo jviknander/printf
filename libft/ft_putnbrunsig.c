@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbrunsig.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 23:20:56 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/11/05 21:44:55 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/12/13 14:40:52 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/12/13 15:59:15 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbrunsign(unsigned int n)
 {
-	int	digit;
+	 int	digit;
 
-	if (n < 0)
-	{
-		if (n == -2147483648)
-			write(fd, "-2147483648", 11);
-		else
-		{
-			ft_putchar_fd('-', fd);
-			ft_putnbr_fd(n * (-1), fd);
-		}
-	}
-	else if (n > 0)
-	{
-		if (n > 9)
-			ft_putnbr_fd(n / 10, fd);
-		digit = (n % 10) + '0';
-		ft_putchar_fd(digit, fd);
-	}
-	else
-		ft_putchar_fd('0', fd);
+	digit = 0;
+	if (n > 9)
+		digit =	ft_putnbr(n / 10);
+	digit = ft_putchar((n % 10) + '0';
+	return (digit);
 }

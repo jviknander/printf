@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:41:55 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 13:39:22 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:26:45 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ static int specifier(va_list args, const char *format)
 		return (ft_pointer(va_arg(args, ));
 	else if (*format == 'd' || *format == 'i')
 		return (ft_putnbr(va_arg(args, int));
-//	else if (*format == 'i')
-//		return (va_arg(args, ));
 	else if (*format == 'u')
 		return (ft_putunbr(va_arg(args, unsigned int));
-	else if (*format == 'x' || *format == 'X')
+	else if (*format == 'x')
 		return (ft_hexa(va_arg(args, int));
-//	else if (*format == 'X')
-//		return (va_arg(args, ));
+	else if (*format == 'X')
+		return (ft_hexa_capital(va_arg(args, int));
 	else if (*format == '%')
 		return (ft_putchar('%'));
 	return (0);
@@ -52,8 +50,8 @@ int	ft_printf(const char *format, ...)
 			c_counter = specifier(args, format);
 		}
 		else
-			c_counter = write(1, (char)format, 1)
-				i++;
+			c_counter = write(1, (char)format, 1);
+			i++;
 	}
 	va_end(arg);
 	return (c_counter);
