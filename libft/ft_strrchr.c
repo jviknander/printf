@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 18:45:45 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 13:39:17 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/10/27 10:28:11 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/11/14 16:19:52 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	n;
 
-#endif
+	n = ft_strlen(s) + 1;
+	while (n--)
+	{
+		if (s[n] == (char )c)
+			return ((char *)&s[n]);
+	}
+	return (0);
+}
+/*
+int main()
+{
+	printf("%s", ft_strrchr("cico", 'c'));
+}*/

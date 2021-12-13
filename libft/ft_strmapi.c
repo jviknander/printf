@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 18:45:45 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 13:39:17 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/10/30 23:16:37 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/11/05 21:39:14 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*mapi;
+	int		i;
+	int		size;
 
-#endif
+	if (!s || !f)
+		return (0);
+	size = ft_strlen(s);
+	mapi = malloc(size + 1);
+	if (!mapi)
+		return (NULL);
+	i = -1;
+	while (s[++i])
+		mapi[i] = f(i, s[i]);
+	mapi[i] = 0;
+	return (mapi);
+}

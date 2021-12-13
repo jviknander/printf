@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 18:45:45 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 13:39:17 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/11/11 09:49:21 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/11/15 11:08:41 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*element;
 
-#endif
+	element = (t_list *)malloc(sizeof(t_list));
+	if (element == NULL)
+		return (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
+}

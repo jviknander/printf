@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 18:45:45 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 13:39:17 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/10/30 23:13:52 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/11/05 21:38:31 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	ft_printf(const char *format, ...);
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int	end;
+	int	i;
 
-#endif
+	if (!s1)
+		return (0);
+	i = 0;
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	end = ft_strlen(s1) - 1;
+	while (end && ft_strchr(set, s1[end]))
+		end--;
+	return (ft_substr(s1, i, end - i + 1));
+}
