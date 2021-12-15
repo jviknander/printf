@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:41:55 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 14:26:45 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/15 13:16:35 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static int specifier(va_list args, const char *format)
 {
 	if (*format == 'c')
-		return (ft_putchar(va_arg(args, char));
+		return (ft_putchar(va_arg(args, char)));
 	else if (*format == 's')
 		return (ft_putstr(va_arg(args, char *));
 	else if (*format == 'p')
-		return (ft_pointer(va_arg(args, ));
+		return (ft_putunbr_base(va_arg(args, ));
 	else if (*format == 'd' || *format == 'i')
-		return (ft_putnbr(va_arg(args, int));
+		return (ft_putnbr(va_arg(args, int)));
 	else if (*format == 'u')
-		return (ft_putunbr(va_arg(args, unsigned int));
+		return (ft_putunbr_base(va_arg(args, unsigned int), 10, 1));
 	else if (*format == 'x')
-		return (ft_hexa(va_arg(args, int));
+		return (ft_putunbr_base(va_arg(args, int), 16, 1));
 	else if (*format == 'X')
-		return (ft_hexa_capital(va_arg(args, int));
+		return (ft_putunbr_base(va_arg(args, int), 16, 0));
 	else if (*format == '%')
 		return (ft_putchar('%'));
 	return (0);
@@ -36,25 +36,25 @@ static int specifier(va_list args, const char *format)
 int	ft_printf(const char *format, ...)
 {
 	va_list args;
-	int	c_counter;
+	int	counter;
 	int	i;
 
 	i = 0;
-	c_counter = 0;
-	va_start(arg, format)
+	counter = 0;
+	va_start(args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			c_counter = specifier(args, format);
+			counter = specifier(args, format);
 		}
 		else
-			c_counter = write(1, (char)format, 1);
+			counter = write(1, format, 1);
 			i++;
 	}
-	va_end(arg);
-	return (c_counter);
+	va_end(args);
+	return (counter);
 }
 
 /*	format − This is the string that contains the text to be written 

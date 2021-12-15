@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrunsig.c                                   :+:      :+:    :+:   */
+/*   ft_putunbr_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 14:40:52 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 15:59:15 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/12/15 09:27:57 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/12/15 12:34:11 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbrunsign(unsigned int n)
+int	ft_putunbr_base(unsigned int n, char base, int type)
 {
-	 int	digit;
+	int	count;
 
-	digit = 0;
+	count = 0;
 	if (n > 9)
-		digit =	ft_putnbr(n / 10);
-	digit = ft_putchar((n % 10) + '0';
-	return (digit);
+	{
+		count += ft_putunbr_base(n / 10);
+		count += ft_putunbr_base (n % 10);
+	}
+	else
+		count += ft_putchar(n + '0');
+	return (count);
 }
+
+int main ()
+{
+
+}
+

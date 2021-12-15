@@ -6,31 +6,29 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:35:07 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 17:05:01 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/15 13:08:40 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr(int n)
+int	ft_putnbr_base(int n, base, type)
 {
-	int	digit;
+	int	count;
 
-	digit = 0;
+	count = 0;
 	if (n == -2147483648)
-			return (ft_putstr("-2147483648"));
+		return (ft_putstr("-2147483648"));
 	else
 	{
 		if (n < 0)
 		{
-			digit = ft_putchar('-');
+			ft_putchar('-');
 			n = n * (-1);
+			count++;
 		}
-		if (n > 9)
-		{
-			digit =	ft_putnbr(n / 10);
-			digit = (n % 10) + '0';
-		}
+		else
+			return (ft_putunbr_base(n, base, type));
 	}
-	return (digit);	
+	return (count);	
 }

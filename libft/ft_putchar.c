@@ -6,13 +6,14 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:34:25 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/13 17:05:31 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:04:23 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }

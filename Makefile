@@ -6,7 +6,7 @@
 #    By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 17:22:49 by jde-melo          #+#    #+#              #
-#    Updated: 2021/12/13 17:24:09 by jde-melo         ###   ########.fr        #
+#    Updated: 2021/12/15 10:52:56 by jde-melo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ RM		= /bin/rm -f
 NAME	= libftprintf.a
 
 
-INCLUDE	= printf.h
+INCLUDE	= ft_printf.h
 SRCS	= ft_printf.c
-
+OBJS	= $(SRCS:.c=.o)
 
 all:		$(NAME)
 
