@@ -6,45 +6,47 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:27:57 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/16 13:19:23 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:01:49 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_type(char base, char type)
+unsigned int	check_type(int base, int type)
 {
-	char	*b;
+	int	b;
+
 	if (base == 16)
 	{
 		if (type == 1)
-			b = "0123456789ABCDEF";
+			b = ft_strlen("0123456789ABCDEF");
 		else
-			b = "01234567789abcdef";
+			b = ft_strlen("0123456789abcdef");
 	}
 	else
-		b = "0123456789";
-	return(ft_strlen(&base));
+		b = ft_strlen("0123456789");
+	return (b);
 }
 
-int	ft_putunbr_base(int n, char  base, char type)
+int	ft_putunbr_base(unsigned int n, int  base, int type)
 {
-	int	count;
+	int		count;
 
 	count = 0;
-	check_type(base, type);
-	if (n >= ft_strlen(&base))
+	if (n >= check_type(base, type) && n > 15)
 	{
-		count += ft_putunbr_base(n / base, base, type);
-		count += ft_putunbr_base(n % base, base, type);
+		ft_putunbr_base(n / base, base, type);
+		ft_putunbr_base(n % base, base, type);
 	}
 	else
 		count += ft_putchar(n + '0');
 	return (count);
 }
+
 /*
 int main ()
 {
-
+	ft_printf("%u\n", ft_putunbr_base(164684, 10, 0));
+	ft_printf("%x\n", ft_putunbr_base(24, 16, 0));
+	ft_printf("%X\n", ft_putunbr_base(24, 16, 1));
 }*/
-
