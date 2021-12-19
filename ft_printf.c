@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:41:55 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/17 22:17:00 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/19 02:43:15 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static int specifier(va_list args, const char *format)
 //	else if (*format == 'p')
 //		return (ft_putunbr_base(va_arg(args, ));
 	else if (*format == 'd' || *format == 'i')
-		return (ft_putnbr_base(va_arg(args, int), 10, 0));
+		return (ft_putnbr_base(va_arg(args, int), "0123456789"));
 	else if (*format == 'u')
-		return (ft_putunbr_base(va_arg(args, int), 10, 0));
+		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789"));
 	else if (*format == 'x')
-		return (ft_putunbr_base(va_arg(args, int), 16, 0));
+		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789abcdef"));
 	else if (*format == 'X')
-		return (ft_putunbr_base(va_arg(args, int), 16, 1));
+		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	else if (*format == '%')
 		return (ft_putchar('%'));
 	return (0);

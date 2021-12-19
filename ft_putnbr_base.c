@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 12:07:59 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/17 12:18:46 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/19 02:51:25 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr_base(int n, char base, char type)
+int	ft_putnbr_base(int n, char *base)
 {
 	int	count;
 
@@ -24,15 +24,31 @@ int	ft_putnbr_base(int n, char base, char type)
 	if (n < 0)
 	{
 		count += ft_putchar('-');
-		n = n * (-1);
-		return (count);	
+		n = n * -1;
+		count += ft_putnbr_base(n, base);
 	}
-	else
-		return (ft_putunbr_base(n, base, type));
+	return (ft_putunbr_base((unsigned int)n, base));
 }
-/*
+
 int main ()
 {
-	ft_putnbr_base(-656166, 10, 1);
-	ft_printf(%u\n, )
-}*/
+/*	//ft_putnbr_base(24, "0123456789");
+	//printf("%d\n", 24 );
+	//ft_printf("%d\n", 24);
+
+	int i = 0;
+	int j = 0;
+	while (i == j)
+	{
+		i =printf("%d\n", i++);
+		j = ft_printf("%d\n", j++);
+		ft_printf("-----------------\n");
+	}
+	printf("%d\n", i);
+	ft_printf("%d\n", j);
+*/
+	ft_printf("%d\n", -2147);
+	printf("%d\n", -2147);
+
+	
+}
