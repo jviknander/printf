@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 13:24:31 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/20 01:32:20 by jde-melo         ###   ########.fr       */
+/*   Created: 2021/12/20 04:13:47 by jde-melo          #+#    #+#             */
+/*   Updated: 2021/12/20 04:20:40 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
 char	*ft_strchr(const char *s, int c)
 {

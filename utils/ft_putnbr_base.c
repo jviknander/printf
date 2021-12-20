@@ -6,13 +6,13 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 12:07:59 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/20 01:22:29 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/20 05:24:23 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	u_base(int n, char *base)
+int	n_base(int n, char *base)
 {
 	int	count;
 

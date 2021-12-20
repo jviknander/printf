@@ -6,10 +6,11 @@
 #    By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 17:22:49 by jde-melo          #+#    #+#              #
-#    Updated: 2021/12/16 13:25:38 by jde-melo         ###   ########.fr        #
+#    Updated: 2021/12/20 05:30:02 by jde-melo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+HDRS	= includes
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -g
 LIB1	= ar -rcs
@@ -19,13 +20,13 @@ RM		= /bin/rm -f
 NAME	= libftprintf.a
 
 
-SRCS	= ft_printf.c \
-		  ft_putnbr_base.c \
-		  ft_putunbr_base.c \
-		  ft_putchar.c \
-		  ft_putstr.c \
-		  ft_strchr.c \
-		  ft_strlen.c
+SRCS	= src/ft_printf.c \
+		  utils/ft_putnbr_base.c \
+		  utils/ft_putunbr_base.c \
+		  utils/ft_putchar.c \
+		  utils/ft_putstr.c \
+		  utils/ft_strchr.c \
+		  utils/ft_strlen.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -35,7 +36,7 @@ $(NAME):	$(OBJS)
 			$(LIB1) $(NAME) $(OBJS)
 			$(LIB2) $(NAME)
 .c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+			$(CC) $(CFLAGS) -I $(HDRS) -c $< -o $(<:.c=.o)
 
 clean:
 			$(RM) $(OBJS) 

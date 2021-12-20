@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:41:55 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/20 01:32:17 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/20 04:22:14 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (ft_strchr("%", format[i]))
 		{
-			i++;
-			counter += specifier(args, &format[i]);
+			counter += specifier(args, &format[++i]);
 			i++;
 		}
 		else
@@ -60,7 +59,13 @@ int	ft_printf(const char *format, ...)
 	}
 	return (counter);
 }
-
+/*
+int main ()
+{
+	ft_printf("o meu: %s\n", "jgjg");
+	printf("%s\n", "jgjg");
+}
+*/
 /*	format − This is the string that contains the text to be written 
  *	to stdout. It can optionally contain embedded format tags that 
  *	are replaced by the values specified in subsequent additional 
