@@ -6,28 +6,29 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:41:55 by jde-melo          #+#    #+#             */
-/*   Updated: 2021/12/19 02:43:15 by jde-melo         ###   ########.fr       */
+/*   Updated: 2021/12/20 01:32:17 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int specifier(va_list args, const char *format)
+static int	specifier(va_list args, const char *format)
 {
 	if (*format == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (*format == 's')
 		return (ft_putstr(va_arg(args, char *)));
-//	else if (*format == 'p')
-//		return (ft_putunbr_base(va_arg(args, ));
+	else if (*format == 'p')
+		return (ft_putstr("0x")
+			+ un_base(va_arg(args, unsigned long long), "0123456789abcdef"));
 	else if (*format == 'd' || *format == 'i')
-		return (ft_putnbr_base(va_arg(args, int), "0123456789"));
+		return (n_base(va_arg(args, int), "0123456789"));
 	else if (*format == 'u')
-		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789"));
+		return (un_base(va_arg(args, unsigned int), "0123456789"));
 	else if (*format == 'x')
-		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789abcdef"));
+		return (un_base(va_arg(args, unsigned int), "0123456789abcdef"));
 	else if (*format == 'X')
-		return (ft_putunbr_base(va_arg(args, unsigned int), "0123456789ABCDEF"));
+		return (un_base(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	else if (*format == '%')
 		return (ft_putchar('%'));
 	return (0);
@@ -35,9 +36,9 @@ static int specifier(va_list args, const char *format)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	int	counter;
-	int	i;
+	va_list	args;
+	int		counter;
+	int		i;
 
 	i = 0;
 	counter = 0;
